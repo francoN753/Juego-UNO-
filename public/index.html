@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO Match - WebSockets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="screen-login" class="screen">
+    <div class="login-box">
+        <h1>¡Bienvenido a UNO!</h1>
+        <input type="text" id="username" placeholder="Tu Nombre de Jugador" maxlength="15">
+        <button id="btn-join">Unirse a la partida</button>
+    </div>
+</div>
+
+<div id="screen-waiting" class="screen hidden">
+    <div class="waiting-box">
+        <h2>Sala de Espera</h2>
+        <p>Esperando a que se conecten 4 jugadores...</p>
+        <ul id="players-list"></ul>
+    </div>
+</div>
+
+<div id="screen-game" class="screen hidden">
+    <div class="game-container">
+
+        <div class="status-bar">
+            <div id="info-turn">Turno de: <span>-</span></div>
+            <div id="info-direction">Sentido: ➡️</div>
+        </div>
+
+        <div class="board-center">
+            <div id="deck" class="card deck-card">
+                <span>Robar</span>
+            </div>
+            <div id="discard-pile" class="card">
+            </div>
+        </div>
+
+        <div id="game-log" class="log-container"></div>
+
+        <div id="action-buttons" class="hidden">
+            <button id="btn-uno" class="btn-action bg-uno">¡Gritar UNO!</button>
+            <button id="btn-corte" class="btn-action bg-corte">¡Cantar CORTE!</button>
+        </div>
+
+        <div class="player-hand-container">
+            <h3>Tu Mano</h3>
+            <div id="player-hand" class="hand"></div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-color" class="modal hidden">
+    <div class="modal-content">
+        <h3>Selecciona un Color</h3>
+        <div class="color-options">
+            <button class="btn-color bg-rojo" data-color="Rojo">Rojo</button>
+            <button class="btn-color bg-amarillo" data-color="Amarillo">Amarillo</button>
+            <button class="btn-color bg-verde" data-color="Verde">Verde</button>
+            <button class="btn-color bg-azul" data-color="Azul">Azul</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-popup" class="modal hidden">
+    <div class="modal-content">
+        <h3 id="popup-message">Mensaje del juego</h3>
+        <button id="btn-popup-resolve">Entendido</button>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
